@@ -4,14 +4,12 @@ from auto_gptq import AutoGPTQForCausalLM, BaseQuantizeConfig
 import argparse
 
 model_name_or_path = "TheBloke/vicuna-7B-v1.3-GPTQ"
-model_basename = "vicuna-7b-v1.3-GPTQ-4bit-128g.no-act.order"
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 class InferlessPythonModel:
     def initialize(self):
         self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
         self.model = AutoGPTQForCausalLM.from_quantized(model_name_or_path,
-            model_basename=model_basename,                                            
             use_safetensors=True,
             trust_remote_code=True,
             device_map='auto',
