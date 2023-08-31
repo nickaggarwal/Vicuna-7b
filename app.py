@@ -8,7 +8,7 @@ os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 class InferlessPythonModel:
     def initialize(self):
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, use_fast=True)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
         self.model = AutoGPTQForCausalLM.from_quantized(model_name_or_path,
             use_safetensors=True,
             trust_remote_code=True,
