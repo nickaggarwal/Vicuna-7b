@@ -3,7 +3,8 @@ from transformers import AutoTokenizer, pipeline, logging
 from auto_gptq import AutoGPTQForCausalLM, BaseQuantizeConfig
 import argparse
 
-model_name_or_path = "lmsys/vicuna-7b-v1.1"
+model_name_or_path = "TheBloke/vicuna-7B-v1.3-GPTQ"
+model_basename = "vicuna-7b-v1.3-GPTQ-4bit-128g.no-act.order"
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 class InferlessPythonModel:
